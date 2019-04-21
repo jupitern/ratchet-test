@@ -1,0 +1,19 @@
+{
+  "name": "jupitern/yeappapi",
+  "require": {
+    "php": ">= 7.2",
+
+    "cboden/ratchet": "*",
+    "ratchet/pawl": "*"
+  },
+  "autoload": {
+      "psr-4": {
+
+      },
+      "files": [
+
+      ]
+  },
+  "suggest": {
+  }
+}

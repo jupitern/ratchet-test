@@ -1,0 +1,29 @@
+/storage/tmp/*
+/storage/sessions/*
+/storage/logs/*.log
+
+# temp files from editors
+*~
+*.bak
+.DS_Store
+Thumbs.db
+.buildpath
+.project
+.settings
+*.tmproj
+build
+.idea
+nbproject/
+vendor/
+
+# the composer package lock file and install directory
+/node_modules/
+/.svn/
+vendor/symfony/filesystem/.gitignore
+vendor/neutron/temporary-filesystem/.gitignore
+vendor/php-ffmpeg/php-ffmpeg/.gitignore
+vendor/alchemy/binary-driver/.gitignore
+vendor/psr/http-factory/.gitignore
+app/Model/Demo.php
+app/Console/Mongo.php
+storage/feeds/
