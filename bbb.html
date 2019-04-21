@@ -8,7 +8,7 @@
 
         var connections = [];
 
-        for (var i=0; i<400; i++) {
+        for (var i=0; i<500; i++) {
 
             connections[i] = new WebSocket('ws://68.183.8.119:8082');
 
@@ -22,9 +22,9 @@
         }
 
         window.setInterval(function () {
-            var connNumber = Math.floor(Math.random() * connections.length) + 1;
+            var connNumber = Math.floor(Math.random() * connections.length);
 
-            if (connections[connNumber] != undefined)
+            if (connections[connNumber].readyState == connections[connNumber].OPEN)
                 connections[connNumber].send("msg test port 8082");
         }, 100);
 
