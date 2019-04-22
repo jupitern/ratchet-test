@@ -14,7 +14,7 @@ require __DIR__ .DS. 'vendor' .DS. 'autoload.php';
 require __DIR__ .DS. 'ChatServerTest.php';
 
 $chatServer = new ChatServerTest;
-$server = IoServer::factory(new HttpServer(new WsServer($chatServer)), 8081);
+$server = IoServer::factory(new HttpServer(new WsServer($chatServer)), 8082);
 $server->run();
 
 //$chatServer = new ChatServerTest;
