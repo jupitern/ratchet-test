@@ -1,0 +1,45 @@
+<html>
+<head>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+
+        var connections = [];
+
+        for (var i=0; i<5000; i++) {
+
+            connections[i] = new WebSocket('ws://68.183.8.119:8084');
+
+            connections[i].onopen = function(e) {
+                console.log("connection opened");
+            };
+
+            connections[i].onmessage = function(e) {
+                console.log(e.data);
+            };
+        }
+
+        window.setInterval(function () {
+            var connNumber = Math.floor(Math.random() * connections.length);
+
+            if (connections[connNumber].readyState == connections[connNumber].OPEN)
+                connections[connNumber].send("test msg");
+        }, 100);
+
+    </script>
+
+</head>
+<body style="margin: 20px; font: 13px Arial;">
+
+    Message: <input type="text" id="msg" /> <input type="button" value="send" id="msgButton" /> <br/><br/>
+
+    <span id="error" style="color: red;"></span> <br/><br/>
+
+    CHAT:
+    <div id="chat" style="margin-top: 10px; border: 1px solid #ccc; width: 80%; height: 400px; padding: 8px; overflow-y: scroll;"></div>
+    <br/><br/>
+
+</body>
+</html>
