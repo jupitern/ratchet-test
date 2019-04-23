@@ -18,7 +18,7 @@ $port = isset($argv[1]) ? (int)$argv[1] : null;
 if (!is_int($port)) die("Error: please provide a port number as first param");
 
 $chatServer = new ChatServerTest;
-$server = IoServer::factory(new HttpServer(new WsServer($chatServer)), 8081);
+$server = IoServer::factory(new HttpServer(new WsServer($chatServer)), $port);
 $server->run();
 
 //$chatServer = new ChatServerTest;
