@@ -14,11 +14,11 @@ require __DIR__ .DS. 'vendor' .DS. 'autoload.php';
 require __DIR__ .DS. 'ChatServerTest.php';
 
 $argv = $GLOBALS['argv'];
-$port = isset($argv[0]) ? (int)$argv[0] : null;
+$port = isset($argv[1]) ? (int)$argv[1] : null;
 if (!is_int($port)) die("Error: please provide a port number as first param");
 
 $chatServer = new ChatServerTest;
-$server = IoServer::factory(new HttpServer(new WsServer($chatServer)), $port);
+$server = IoServer::factory(new HttpServer(new WsServer($chatServer)), 8081);
 $server->run();
 
 //$chatServer = new ChatServerTest;
